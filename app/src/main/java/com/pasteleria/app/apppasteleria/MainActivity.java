@@ -3,6 +3,8 @@ package com.pasteleria.app.apppasteleria;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -11,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
+    final AccountFragment ajustes = new AccountFragment();
+    final FragmentManager fm = getSupportFragmentManager();
+
+    Fragment active = null;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -26,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
+                case R.id.navigation_account:
+                    fm.beginTransaction().hide(active)
+                            .show(ajustes).commit();
+                    active = ajustes;
+                    return true;
             }
             return false;
         }
@@ -35,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fm.beginTransaction().add(R.id.main_container,
+                ajustes).commit();
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
