@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
-    final AccountFragment ajustes = new AccountFragment();
+   // final AccountFragment ajustes = new AccountFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
     Fragment active = null;
@@ -32,11 +32,13 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
+                    /*
                 case R.id.navigation_account:
                     fm.beginTransaction().hide(active)
                             .show(ajustes).commit();
                     active = ajustes;
                     return true;
+                    */
             }
             return false;
         }
@@ -46,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+/*
         fm.beginTransaction().add(R.id.main_container,
                 ajustes).commit();
-
+*/
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

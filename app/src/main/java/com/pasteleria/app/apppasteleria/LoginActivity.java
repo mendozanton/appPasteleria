@@ -62,27 +62,22 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONObject reponseContent = response.getJSONObject("content");
-                            String emailContent="", passwordContent="";
 
-                            emailContent= reponseContent.getString("email");
-                            passwordContent = reponseContent.getString("password");
+                            int codigoResponse = reponseContent.getInt("codigo");
 
-                            if (emailContent.equals("found")) {
-                                if (passwordContent.equals("found")) {
-                                    progbar.setVisibility(View.GONE);
-                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                }
-                                if (passwordContent.equals("not_found")) {
-                                    progbar.setVisibility(View.GONE);
-                                    Toast.makeText(getApplicationContext(),"Contraseña incorrecta",
-                                            Toast.LENGTH_LONG).show();
-                                }
-                            }
-                            if (emailContent.equals("not_found")) {
+
+                            if (codigoResponse == 2) {
                                 progbar.setVisibility(View.GONE);
-                                Toast.makeText(getApplicationContext(),"Usuario no existe, registrese",
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            }
+
+                            if (codigoResponse == 1) {
+                                progbar.setVisibility(View.GONE);
+                                Toast.makeText(getApplicationContext(),"Contraseña incorrecta",
                                         Toast.LENGTH_LONG).show();
                             }
+
+
                         } catch (Exception e){
                             e.printStackTrace();
                         }
