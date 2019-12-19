@@ -1,4 +1,4 @@
-package com.pasteleria.app.apppasteleria;
+package com.pasteleria.app.apppasteleria.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,29 +9,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.pasteleria.app.apppasteleria.R;
+import com.pasteleria.app.apppasteleria.fragments.ActividadFragment;
+import com.pasteleria.app.apppasteleria.fragments.ComprasFragment;
+import com.pasteleria.app.apppasteleria.fragments.HomeFragment;
+
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
-
-   // final AccountFragment ajustes = new AccountFragment();
-    final FragmentManager fm = getSupportFragmentManager();
-
-    Fragment active = null;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment active = null;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    return true;
+                    active = new HomeFragment();
+                    break;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
+                    active = new ActividadFragment();
+                    break;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                    active = new ComprasFragment();
+                    break;
                     /*
                 case R.id.navigation_account:
                     fm.beginTransaction().hide(active)
@@ -40,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                     */
             }
-            return false;
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content,
+                    active).commit();
+            return true;
+
         }
     };
 
@@ -48,11 +51,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-/*
-        fm.beginTransaction().add(R.id.main_container,
-                ajustes).commit();
-*/
-        mTextMessage = (TextView) findViewById(R.id.message);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new HomeFragment()).commit();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

@@ -5,4 +5,7 @@
     <dimen name="fragm_margin_vertical">10dp</dimen>
     <dimen name="fragm_padding_horinzon">20dp</dimen>
     <dimen name="text_size">15dp</dimen>
+    <dimen name="text_size_button">18dp</dimen>
+    <dimen name="cardview_info_prod_botom">20dp</dimen>
+    <dimen name="cardview_info_prod_padding">20dp</dimen>
 </resources>

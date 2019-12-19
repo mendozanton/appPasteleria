@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">appPasteleria</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_compra">COMPRAR AHORA</string>
+    <string name="title_cesta">AÑADIR A LA CESTA</string>
+    <string name="title_dashboard">Actividad</string>
+    <string name="title_shop">Compras</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_account">Cuenta</string>
     <string name="title_activity_login">Sign in</string>
@@ -25,4 +28,5 @@
     <string name="ac_usu_nom">Nombres</string>
     <string name="ac_usu_ape">Apellidos</string>
     <string name="ac_usu_ema">Email</string>
+    <string name="title_cantidad">Cantidad</string>
 </resources>

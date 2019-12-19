@@ -1,4 +1,4 @@
-package com.pasteleria.app.apppasteleria;
+package com.pasteleria.app.apppasteleria.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import com.pasteleria.app.apppasteleria.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -22,9 +24,9 @@ public class SplashActivity extends AppCompatActivity {
 
         ivImagen.startAnimation(animation);
 
-        final Intent intLogin = new Intent(
+        final Intent main = new Intent(
                 SplashActivity.this,
-                LoginActivity.class);
+                MainActivity.class);
 
 
         Thread timer = new Thread(){
@@ -35,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
                 }catch (InterruptedException ex){
                     ex.printStackTrace();
                 }finally {
-                    startActivity(intLogin);
+                    startActivity(main);
                     finish();
                 }
             }

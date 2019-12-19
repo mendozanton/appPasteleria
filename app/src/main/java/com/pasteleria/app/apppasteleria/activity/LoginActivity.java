@@ -1,4 +1,4 @@
-package com.pasteleria.app.apppasteleria;
+package com.pasteleria.app.apppasteleria.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -15,8 +15,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.pasteleria.app.apppasteleria.R;
+import com.pasteleria.app.apppasteleria.services.ConnectApi;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsuario, etPassword;
     private ProgressBar progbar;
     private RequestQueue mQueue;
+    private String url = ConnectApi.url_local + ConnectApi.url_accses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +38,10 @@ public class LoginActivity extends AppCompatActivity {
 
         etUsuario =  findViewById(R.id.etUsuario);
         etPassword =  findViewById(R.id.etPassword);
-        progbar = findViewById(R.id.progbar);
         btnIngresar = findViewById(R.id.btnLogin);
+        progbar = findViewById(R.id.progbar);
 
         mQueue = Volley.newRequestQueue(this);
-        final String uriLogin = "https://pastelservices.azurewebsites.net/api/login";
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(params);
 
 
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, uriLogin, jsonObject,
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject,
                         new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
