@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.pasteleria.app.apppasteleria.R;
+import com.pasteleria.app.apppasteleria.fragments.AccountFragment;
 import com.pasteleria.app.apppasteleria.fragments.ActividadFragment;
-import com.pasteleria.app.apppasteleria.fragments.ComprasFragment;
+import com.pasteleria.app.apppasteleria.fragments.CestaFragment;
 import com.pasteleria.app.apppasteleria.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,20 +29,16 @@ public class MainActivity extends AppCompatActivity {
                     active = new ActividadFragment();
                     break;
                 case R.id.navigation_notifications:
-                    active = new ComprasFragment();
+                    active = new CestaFragment();
                     break;
-                    /*
+
                 case R.id.navigation_account:
-                    fm.beginTransaction().hide(active)
-                            .show(ajustes).commit();
-                    active = ajustes;
-                    return true;
-                    */
+                    active = new AccountFragment();
+                    break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content,
                     active).commit();
             return true;
-
         }
     };
 

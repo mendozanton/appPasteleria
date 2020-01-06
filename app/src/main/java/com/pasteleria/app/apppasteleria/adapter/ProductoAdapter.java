@@ -3,6 +3,7 @@ package com.pasteleria.app.apppasteleria.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.icu.text.SymbolTable;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.pasteleria.app.apppasteleria.R;
 import com.pasteleria.app.apppasteleria.activity.ProductoInfoActivity;
+import com.pasteleria.app.apppasteleria.modelo.Imagen;
 import com.pasteleria.app.apppasteleria.modelo.Producto;
 import com.squareup.picasso.Picasso;
 
@@ -60,16 +62,14 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductoInfoActivity.class);
-
-                ArrayList<String> srcImages = new ArrayList<>();
-
-                for(int i = 0; i < item.getImagenes().size(); i++){
-                    srcImages.add(item.getImagenes().get(i).getSource());
-                }
-                intent.putStringArrayListExtra("imagesProd",srcImages);
-                intent.putExtra("precioProd",item.getPrecio());
-                intent.putExtra("descripProd",item.getDescripcion());
-
+                Producto p = new Producto();
+                p.setIdProducto(item.getIdProducto());
+                p.setPrecio(item.getPrecio());
+                p.setDescripcion(item.getDescripcion());
+                p.setImagenes(item.getImagenes());
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("producto",p);
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_modal_layout">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="10"
+        android:textSize="20dp"
+        android:id="@+id/tvTitle_modalMensaje"
+        android:textColor="@color/textColorBlack"
+        android:layout_marginBottom="@dimen/padding_modal_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnOk_modalMensaje"
+            android:background="@drawable/button_3"
+            android:textColor="@color/colorWhite"
+            android:text="OK"/>
+    </LinearLayout>
+</LinearLayout>

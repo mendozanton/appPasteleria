@@ -5,7 +5,11 @@
     <dimen name="fragm_margin_vertical">10dp</dimen>
     <dimen name="fragm_padding_horinzon">20dp</dimen>
     <dimen name="text_size">15dp</dimen>
-    <dimen name="text_size_button">18dp</dimen>
+    <dimen name="text_size_button">15dp</dimen>
     <dimen name="cardview_info_prod_botom">20dp</dimen>
-    <dimen name="cardview_info_prod_padding">20dp</dimen>
+    <dimen name="cardview_info_prod_padding">16dp</dimen>
+    <dimen name="text_button_padding">15dp</dimen>
+    <dimen name="padding_modal_layout">20dp</dimen>
+    <dimen name="margin_vertical_field">7dp</dimen>
+    <dimen name="cardview_cesta_prod_padding">10dp</dimen>
 </resources>

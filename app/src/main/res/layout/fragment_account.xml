@@ -6,132 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".fragments.AccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <LinearLayout
+        android:id="@+id/linLayout_head_Faccout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/fondo"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/fondo">
 
         <LinearLayout
+
             android:layout_width="match_parent"
+            android:background="@color/colorWhite"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorMenu"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:paddingHorizontal="@dimen/fragm_padding_horinzon">
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ajustes"
-                android:textColor="@color/colorWhite"
-                android:textSize="25dp"
+                android:id="@+id/tvHead_Faccout"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:gravity="center_vertical"
+                android:padding="15dp"
+                android:layout_marginVertical="10dp"
+                android:textColor="@color/textColorBlack"
+                android:textSize="24dp"
                 android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pedidos"
+                android:padding="@dimen/text_button_padding"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_size"
+                android:drawableLeft="@drawable/ic_content_paste_black_24dp"
+                android:drawablePadding="8dp"
+               />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvPendEnvio_Faccount"
+                android:text="@string/action_pendientes_envio"
+                android:padding="@dimen/text_button_padding"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_size"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvPedEnviados_Faccount"
+                android:text="@string/action_pedidos_eviados"
+                android:padding="@dimen/text_button_padding"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_size"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"/>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/tvDirecc_Faccount"
             android:background="@color/colorWhite"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/fragm_padding_horinzon">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginVertical="@dimen/fragm_margin_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ac_usu_nom"
-                    android:textColor="@color/textColorBlack"
-
-                    android:textSize="@dimen/text_size" />
-
-                <TextView
-                    android:id="@+id/tvNombre"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:textColor="@color/textColorBlack"
-                    android:textSize="@dimen/text_size" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/fragm_margin_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ac_usu_ape"
-                    android:textColor="@color/textColorBlack"
-                    android:textSize="@dimen/text_size" />
-                <TextView
-                    android:id="@+id/tvApellido"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:textColor="@color/textColorBlack"
-                    android:textSize="@dimen/text_size" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/fragm_margin_vertical"
-
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ac_usu_ema"
-                    android:textColor="@color/textColorBlack"
-                    android:textSize="@dimen/text_size" />
-                <TextView
-                    android:id="@+id/tvEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:textColor="@color/textColorBlack"
-                    android:textSize="@dimen/text_size" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
+            android:text="@string/action_direcc_entrega"
+            android:padding="@dimen/text_button_padding"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_size"
+            android:drawableLeft="@drawable/ic_location_on_black_24dp"
+            android:drawablePadding="8dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_marginVertical="20dp"
+            android:id="@+id/tvAjustes_Faccount"
             android:background="@color/colorWhite"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/fragm_padding_horinzon">
-
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnSignOut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/colorAccent"
-            android:text="Cerrar sesion"
-            android:textColor="@color/colorWhite"
-            android:textAllCaps="false"
-            android:textStyle="bold" />
+            android:text="@string/action_ajustes"
+            android:padding="@dimen/text_button_padding"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_size"
+            android:drawableLeft="@drawable/ic_settings_black_24dp"
+            android:drawablePadding="8dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
     </LinearLayout>
 

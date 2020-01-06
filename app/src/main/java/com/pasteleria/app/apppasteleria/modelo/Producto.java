@@ -1,11 +1,13 @@
 package com.pasteleria.app.apppasteleria.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Producto {
+public class Producto implements Serializable {
     private Integer idProducto;
     private String nombre;
     private String descripcion;
+    private String descripcion2;
     private Double precio;
     private Integer stock;
     private List<Imagen> Imagenes;
@@ -16,18 +18,13 @@ public class Producto {
 
     }
 
-    @Override
-    public String toString() {
-        return "Producto{" +
-                "idProducto=" + idProducto +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                ", stock=" + stock +
-                ", Imagenes=" + Imagenes +
-                ", detalle='" + detalle + '\'' +
-                ", estado='" + estado + '\'' +
-                '}';
+
+    public String getDescripcion2() {
+        return descripcion2;
+    }
+
+    public void setDescripcion2(String descripcio2) {
+        this.descripcion2 = descripcio2;
     }
 
     public Integer getIdProducto() {
@@ -92,5 +89,20 @@ public class Producto {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "idProducto=" + idProducto +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", descripcio2='" + descripcion2 + '\'' +
+                ", precio=" + precio +
+                ", stock=" + stock +
+                ", Imagenes=" + Imagenes +
+                ", detalle='" + detalle + '\'' +
+                ", estado='" + estado + '\'' +
+                '}';
     }
 }

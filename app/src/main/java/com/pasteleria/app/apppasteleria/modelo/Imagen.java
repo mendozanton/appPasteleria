@@ -1,6 +1,8 @@
 package com.pasteleria.app.apppasteleria.modelo;
 
-public class Imagen {
+import java.io.Serializable;
+
+public class Imagen implements Serializable {
     private Integer idImagen;
     private String source;
     private String nombre;

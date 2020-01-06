@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_itemCesta"
+    android:orientation="vertical"
+    app:cardUseCompatPadding="true"
+    android:layout_height="150dp"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="15dp"
+        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <CheckBox
+            android:id="@+id/checkbox_itemCesta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp" />
+
+        <ImageView
+            android:id="@+id/ivProdCesta_itemCesta"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/checkbox_itemCesta"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvNomProdCesta_itemCesta"
+            android:layout_toRightOf="@+id/ivProdCesta_itemCesta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorBlack"
+            android:padding="@dimen/cardview_cesta_prod_padding"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/cardview_cesta_prod_padding"
+            android:layout_toRightOf="@+id/ivProdCesta_itemCesta"
+            android:layout_below="@+id/tvNomProdCesta_itemCesta"
+            android:textSize="16dp"
+            android:textColor="@color/textColorBlack"
+            android:text="PER S/."
+            android:lines="1"
+            android:textStyle="bold"
+            android:id="@+id/tvPrecProdCesta_itemCesta"/>
+    </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

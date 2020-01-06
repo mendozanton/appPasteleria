@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_modal_layout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contraseña"
+        android:textSize="20dp"
+        android:textColor="@color/textColorBlack"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etOldPass_modalPasswd"
+        android:lines="1"
+        android:textSize="18dp"
+        android:hint="Contraseña actual"
+        android:layout_marginTop="15dp"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etNewPass_modalPasswd"
+        android:lines="1"
+        android:textSize="18dp"
+        android:hint="Contraseña nueva"
+        android:layout_marginTop="15dp"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etNewPass2_modalPasswd"
+        android:lines="1"
+        android:textSize="18dp"
+        android:hint="Comprobar contraseña nueva"
+        android:layout_marginVertical="15dp"
+        android:inputType="textPassword"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGuardar_modalPasswd"
+            android:background="@drawable/button_3"
+            android:textColor="@color/colorWhite"
+            android:text="Guardar"/>
+    </LinearLayout>
+</LinearLayout>

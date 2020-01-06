@@ -6,7 +6,7 @@
     <string name="title_dashboard">Actividad</string>
     <string name="title_shop">Compras</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_account">Cuenta</string>
+    <string name="title_account">Mi Cuenta</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
@@ -29,4 +29,21 @@
     <string name="ac_usu_ape">Apellidos</string>
     <string name="ac_usu_ema">Email</string>
     <string name="title_cantidad">Cantidad</string>
+    <string name="action_log_out">Cerrar sesion</string>
+    <string name="action_pendientes_envio">Pendientes de envio</string>
+    <string name="action_pedidos_eviados">Pedidos enviados</string>
+    <string name="action_direcc_entrega">Direccion de entrega</string>
+    <string name="action_ajustes">Ajustes</string>
+    <string name="action_nombreUsu_settings">Nombres</string>
+    <string name="action_emailUsu_settings">Email</string>
+    <string name="action_apeUsu_settings">Apellidos</string>
+    <string name="action_telUsu_settings">Telefono</string>
+    <string name="action_passUsu_settings">Contraseña</string>
+    <string name="action_sexUsu_settings">Sexo</string>
+    <string name="ac_usu_pass">Contraseña</string>
+    <string name="ac_usu_telef">Telefono</string>
+    <string name="ac_usu_FecNac">Fecha de nacimiento</string>
+    <string name="ac_usu_direcc">Direccion</string>
+    <string name="action_continuar">Continuar</string>
+    <string name="env_desc_ProdInf">A cualquier distrito permitido enviado por delivery con costo adicional</string>
 </resources>

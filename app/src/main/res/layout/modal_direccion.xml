@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_modal_layout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Direccion"
+        android:textSize="20dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/textColorBlack"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_vertical_field">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:text="Distrito"
+            android:layout_gravity="center"
+            android:paddingLeft="4dp"
+            android:paddingRight="50dp"
+            android:paddingVertical="10dp"
+            android:textSize="16dp"/>
+
+        <Spinner
+            android:id="@+id/spDist_modalDirecc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lines="1" />
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etAv_modalDirecc"
+        android:lines="1"
+        android:textSize="18dp"
+        android:layout_marginBottom="@dimen/margin_vertical_field"
+        android:hint="Avenida"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etCalle_modalDirecc"
+        android:lines="1"
+        android:textSize="18dp"
+        android:layout_marginBottom="@dimen/margin_vertical_field"
+        android:hint="Calle"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etUrb_modalDirecc"
+        android:lines="1"
+        android:textSize="18dp"
+        android:layout_marginBottom="@dimen/margin_vertical_field"
+        android:hint="Urbanizacion"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etRef_modalDirecc"
+        android:lines="1"
+        android:textSize="18dp"
+        android:layout_marginBottom="@dimen/margin_vertical_field"
+        android:hint="Referencia o descripcion"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGuardar_modalDirecc"
+            android:background="@drawable/button_3"
+            android:textColor="@color/colorWhite"
+            android:text="Guardar"/>
+    </LinearLayout>
+</LinearLayout>

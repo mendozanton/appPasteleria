@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_modal_layout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono"
+        android:textSize="20dp"
+        android:textColor="@color/textColorBlack"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTelefono_modalTelefono"
+        android:lines="1"
+        android:textSize="18dp"
+        android:layout_marginVertical="15dp"
+        android:maxLength="9"
+        android:digits="1234567890"
+        android:inputType="phone"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGuardar_modalTelefono"
+            android:background="@drawable/button_3"
+            android:textColor="@color/colorWhite"
+            android:text="Guardar"/>
+    </LinearLayout>
+</LinearLayout>

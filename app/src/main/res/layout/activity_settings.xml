@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/fondo"
+    tools:context=".activity.SettingsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/toolbar"
+        android:background="@color/textColorBlack">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajustes"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp" />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_nombreUsu_settings"
+            android:padding="@dimen/text_button_padding"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_size"
+           />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvNomUsu_Asettings"
+            android:padding="@dimen/text_button_padding"
+            android:textSize="@dimen/text_size"
+            android:gravity="end" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_apeUsu_settings"
+            android:padding="@dimen/text_button_padding"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_size"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvApeUsu_Asettings"
+            android:padding="@dimen/text_button_padding"
+            android:textSize="@dimen/text_size"
+            android:gravity="end" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:id="@+id/LinearL_email_Asettings"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_emailUsu_settings"
+            android:padding="@dimen/text_button_padding"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_size"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvEmailUsu_Asettings"
+            android:padding="@dimen/text_button_padding"
+            android:textSize="@dimen/text_size"
+            android:gravity="end" />
+    </LinearLayout>
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="horizontal"
+    android:id="@+id/LinearL_telefono_Asettings"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_telUsu_settings"
+        android:padding="@dimen/text_button_padding"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/text_size"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTelUsu_Asettings"
+        android:padding="@dimen/text_button_padding"
+        android:textSize="@dimen/text_size"
+        android:gravity="end" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:id="@+id/LinearL_password_Asettings"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_passUsu_settings"
+            android:padding="@dimen/text_button_padding"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_size"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvPassUsu_Asettings"
+            android:padding="@dimen/text_button_padding"
+            android:text="••••••••••"
+            android:textSize="@dimen/text_size"
+            android:gravity="end" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_sexUsu_settings"
+            android:padding="@dimen/text_button_padding"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_size"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvSexUsu_Asettings"
+            android:padding="@dimen/text_button_padding"
+            android:textSize="@dimen/text_size"
+            android:gravity="end" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnLogout_Asettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="24dp"
+        android:layout_marginHorizontal="15dp"
+        android:background="@color/colorAccent"
+        android:padding="12dp"
+        android:text="@string/action_log_out"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_button"
+        android:textStyle="bold" />
+</LinearLayout>

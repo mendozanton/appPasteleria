@@ -4,18 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    >
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_above="@+id/nav_compra"
-        >
+    android:layout_height="match_parent">
 
         <RelativeLayout
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".activity.ProductoInfoActivity">
@@ -49,7 +40,7 @@
                             android:id="@+id/tvProDeta_precio"
                             android:textColor="@color/textColorBlack"
                             android:layout_marginBottom="@dimen/cardview_info_prod_botom"
-                            android:textSize="20dp"
+                            android:textSize="18sp"
 
                             android:textStyle="bold"/>
                         <TextView
@@ -63,15 +54,49 @@
             <android.support.v7.widget.CardView
                 android:layout_below="@+id/cvProdDes"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/cardview_info_prod_botom"
                 >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/cardview_info_prod_padding">
+
+                    <TextView
+                        android:id="@+id/tvEnv_ProdInf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Envio: "
+                        android:textSize="16sp"
+                        android:textColor="@color/textColorBlack"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvEnv_ProdInf"
+                        android:textColor="@color/textColorBlack"
+                        android:id="@+id/tvEnvPrec_ProdInf"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvEnv_ProdInf"
+                        android:layout_marginTop="18dp"
+                        android:text="@string/env_desc_ProdInf"
+
+                        android:textSize="15sp"
+                        />
+                </RelativeLayout>
 
             </android.support.v7.widget.CardView>
 
         </RelativeLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation_compra"
         android:layout_width="match_parent"

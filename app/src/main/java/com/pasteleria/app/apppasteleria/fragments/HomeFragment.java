@@ -68,7 +68,7 @@ public class HomeFragment extends Fragment {
     }
 
     public void WsGetProductos() {
-        String url = ConnectApi.url_local + ConnectApi.url_product;
+        String url = ConnectApi.url_local + ConnectApi.url_product + "/estado=7";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -81,10 +81,11 @@ public class HomeFragment extends Fragment {
 
                                 JSONObject projs = jsonArray.getJSONObject(i);
                                 Producto pr = new Producto();
-
+                                pr.setIdProducto(projs.getInt("idProducto"));
                                 pr.setNombre(projs.getString("nombre"));
                                 pr.setDescripcion(projs.getString("descripcion"));
-
+                                pr.setDescripcion2(projs.getString("descripcion2"));
+                                pr.setStock(2);
                                 List<Imagen> imgs = new ArrayList<>();
                                 JSONArray jsonArrImagenes =  projs.getJSONArray("imagenes");
 
@@ -101,7 +102,6 @@ public class HomeFragment extends Fragment {
                                 pr.setPrecio(projs.getDouble("precio"));
                                 vDatos.add(pr);
                             }
-
                             adapter.agregarElementos(vDatos);
 
                         }catch (JSONException ex){
