@@ -55,10 +55,20 @@
             android:layout_below="@+id/tvNomProdCesta_itemCesta"
             android:textSize="16dp"
             android:textColor="@color/textColorBlack"
-            android:text="PER S/."
             android:lines="1"
             android:textStyle="bold"
             android:id="@+id/tvPrecProdCesta_itemCesta"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/cardview_cesta_prod_padding"
+            android:layout_toRightOf="@+id/ivProdCesta_itemCesta"
+            android:layout_below="@+id/tvPrecProdCesta_itemCesta"
+            android:textSize="16dp"
+            android:textColor="@color/textColorBlack"
+            android:lines="1"
+
+            android:id="@+id/tvCantProdCesta_itemCesta"/>
     </RelativeLayout>
     </LinearLayout>
 

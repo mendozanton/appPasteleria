@@ -17,6 +17,7 @@ import com.pasteleria.app.apppasteleria.modelo.CestaProducto;
 import com.pasteleria.app.apppasteleria.modelo.Producto;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ProductoCestaAdapter extends RecyclerView.Adapter<ProductoCestaAdapter.ProductoCestaViewHolder>{
@@ -40,7 +41,10 @@ public class ProductoCestaAdapter extends RecyclerView.Adapter<ProductoCestaAdap
         final CestaProducto item = lista.get(i);
 
         productoCestaViewHolder.tvNom.setText("De " + item.getNombre());
-        productoCestaViewHolder.tvPrec.setText(productoCestaViewHolder.tvPrec.getText().toString() + " " + item.getPrecio().toString());
+        final DecimalFormat formato = new DecimalFormat("#,###.00");
+
+        productoCestaViewHolder.tvPrec.setText("S/." + " " + formato.format(item.getPrecio()));
+        productoCestaViewHolder.tvCant.setText("Cantidad:" + " " + item.getCantidad().toString());
         productoCestaViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,11 +52,13 @@ public class ProductoCestaAdapter extends RecyclerView.Adapter<ProductoCestaAdap
                 productoCestaViewHolder.checkbox.setChecked(!productoCestaViewHolder.checkbox.isChecked());
                 if (productoCestaViewHolder.checkbox.isChecked()) {
                     item.setEstado(1);
+                    
                 } else {
                     item.setEstado(2);
                 }
             }
         });
+        productoCestaViewHolder.checkbox.setChecked(false);
         Picasso.with(context)
                 .load(item.getImagenes().get(0).getSource())
                 .fit()
@@ -67,7 +73,7 @@ public class ProductoCestaAdapter extends RecyclerView.Adapter<ProductoCestaAdap
 
     public class ProductoCestaViewHolder extends RecyclerView.ViewHolder {
         CheckBox checkbox;
-        TextView tvNom,tvPrec;
+        TextView tvNom,tvPrec,tvCant;
         ImageView ivProd;
         CardView cardView;
 
@@ -76,14 +82,21 @@ public class ProductoCestaAdapter extends RecyclerView.Adapter<ProductoCestaAdap
             checkbox = itemView.findViewById(R.id.checkbox_itemCesta);
             tvNom = itemView.findViewById(R.id.tvNomProdCesta_itemCesta);
             tvPrec = itemView.findViewById(R.id.tvPrecProdCesta_itemCesta);
+            tvCant = itemView.findViewById(R.id.tvCantProdCesta_itemCesta);
             ivProd = itemView.findViewById(R.id.ivProdCesta_itemCesta);
             cardView = itemView.findViewById(R.id.cardview_itemCesta);
+
         }
     }
 
     public void agregarElementos(ArrayList<CestaProducto> data){
         lista.clear();
         lista.addAll(data);
+        notifyDataSetChanged();
+    }
+    public void BorrarElementos(){
+        lista.clear();
+
         notifyDataSetChanged();
     }
 

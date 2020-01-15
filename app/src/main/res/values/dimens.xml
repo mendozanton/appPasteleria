@@ -11,5 +11,5 @@
     <dimen name="text_button_padding">15dp</dimen>
     <dimen name="padding_modal_layout">20dp</dimen>
     <dimen name="margin_vertical_field">7dp</dimen>
-    <dimen name="cardview_cesta_prod_padding">10dp</dimen>
+    <dimen name="cardview_cesta_prod_padding">8dp</dimen>
 </resources>

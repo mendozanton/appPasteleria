@@ -2,6 +2,7 @@ package com.pasteleria.app.apppasteleria.fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,6 +25,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.pasteleria.app.apppasteleria.R;
+import com.pasteleria.app.apppasteleria.activity.PedidoConfirmActivity;
+import com.pasteleria.app.apppasteleria.activity.ProductoInfoActivity;
 import com.pasteleria.app.apppasteleria.adapter.ProductoAdapter;
 import com.pasteleria.app.apppasteleria.adapter.ProductoCestaAdapter;
 import com.pasteleria.app.apppasteleria.modelo.CestaProducto;
@@ -50,14 +53,14 @@ public class CestaFragment extends Fragment {
     private TextView title;
     private ImageButton deleteItem;
     private Button comprar;
-
+    int idUsuario;
     public CestaFragment() {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cesta, container, false);
         title = view.findViewById(R.id.tvTitle_cestaFragment);
@@ -73,7 +76,7 @@ public class CestaFragment extends Fragment {
 
         SharedPreferences preferences = getContext().getSharedPreferences(
                 "users", getContext().MODE_PRIVATE);
-        int idUsuario = 0;
+        idUsuario = 0;
         if(preferences.contains("idUsuario")){
             idUsuario = Integer.parseInt(preferences.getString("idUsuario",""));
 
@@ -98,6 +101,7 @@ public class CestaFragment extends Fragment {
                                         pr.setDescripcion(projs.getString("descripcion"));
                                         pr.setDescripcion2(projs.getString("descripcion2"));
                                         pr.setStock(projs.getInt("stock"));
+                                        pr.setCantidad(projs.getInt("cantidad"));
                                         List<Imagen> imgs = new ArrayList<>();
                                         JSONArray jsonArrImagenes = projs.getJSONArray("imagenes");
 
@@ -158,7 +162,7 @@ public class CestaFragment extends Fragment {
                             jsonObject.put("idCestaProducto", jsonArray);
                         } catch (Exception e){ e.printStackTrace(); }
 
-                        System.out.println(jsonObject);
+                        //System.out.println(jsonObject);
 
                         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject,
                                 new Response.Listener<JSONObject>() {
@@ -166,7 +170,64 @@ public class CestaFragment extends Fragment {
                                     public void onResponse(JSONObject response) {
                                         try {
                                             JSONObject content = response.getJSONObject("content");
+                                            adapter.BorrarElementos();
+                                            vDatos.clear();
+                                            {
+                                                String url = ConnectApi.url_local + ConnectApi.url_cesta + "/usuario=" + idUsuario;
 
+                                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                                                        new Response.Listener<JSONObject>() {
+                                                            @Override
+                                                            public void onResponse(JSONObject response) {
+                                                                try {
+                                                                    JSONObject content = response.getJSONObject("content");
+                                                                    if (content.getInt("idCesta") >= 1) {
+                                                                        JSONArray prodJsonArray = content.getJSONArray("productos");
+
+                                                                        for (int i = 0; i < prodJsonArray.length(); i++) {
+
+                                                                            JSONObject projs = prodJsonArray.getJSONObject(i);
+                                                                            CestaProducto pr = new CestaProducto();
+                                                                            pr.setIdCestaProducto(projs.getInt("idCestaProducto"));
+                                                                            pr.setIdProducto(projs.getInt("idProducto"));
+                                                                            pr.setNombre(projs.getString("nombre"));
+                                                                            pr.setDescripcion(projs.getString("descripcion"));
+                                                                            pr.setDescripcion2(projs.getString("descripcion2"));
+                                                                            pr.setStock(projs.getInt("stock"));
+                                                                            pr.setCantidad(projs.getInt("cantidad"));
+                                                                            List<Imagen> imgs = new ArrayList<>();
+                                                                            JSONArray jsonArrImagenes = projs.getJSONArray("imagenes");
+
+                                                                            for (int y = 0; y < jsonArrImagenes.length(); y++) {
+                                                                                Imagen img = new Imagen();
+                                                                                img.setIdImagen(jsonArrImagenes.getJSONObject(y).getInt("idImagen"));
+                                                                                img.setSource(jsonArrImagenes.getJSONObject(y).getString("source"));
+                                                                                img.setNombre(jsonArrImagenes.getJSONObject(y).getString("nombre"));
+                                                                                img.setClasificacion(jsonArrImagenes.getJSONObject(y).getString("clasificacion"));
+
+                                                                                imgs.add(img);
+                                                                            }
+                                                                            pr.setImagenes(imgs);
+                                                                            pr.setPrecio(projs.getDouble("precio"));
+                                                                            pr.setEstado(2);
+                                                                            vDatos.add(pr);
+
+                                                                        }
+                                                                        title.setText("Cesta" + " (" + prodJsonArray.length() + ")");
+                                                                        adapter.agregarElementos(vDatos);
+                                                                    }
+                                                                }catch (JSONException ex){
+                                                                    ex.printStackTrace();
+                                                                }
+                                                            }
+                                                        },
+                                                        new Response.ErrorListener() {
+                                                            @Override
+                                                            public void onErrorResponse(VolleyError error) { error.printStackTrace();}
+                                                        }
+                                                );
+                                                mQueue.add(request);
+                                            }
 
                                         }catch (JSONException ex){
                                             ex.printStackTrace();
@@ -178,11 +239,30 @@ public class CestaFragment extends Fragment {
                                     public void onErrorResponse(VolleyError error) { error.printStackTrace();}
                                 }
                         );
-
                         mQueue.add(request);
-
-
                     }
+
+                }
+            });
+
+            comprar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ArrayList<CestaProducto> prods= new ArrayList<>();
+                    for (CestaProducto c : adapter.getListaProductos()) {
+                        if (c.getEstado() == 1) {
+                            prods.add(c);
+                        }
+                    }
+                    if(prods.size() > 0) {
+                        Intent intent = new Intent(getContext(), PedidoConfirmActivity.class);
+                        intent.putExtra("listProds", prods);
+                        getContext().startActivity(intent);
+                    } else {
+                        Toast.makeText(getContext(),"Seleccione un producto",
+                                Toast.LENGTH_LONG).show();
+                    }
+
                 }
             });
         } else { idUsuario = -1; }

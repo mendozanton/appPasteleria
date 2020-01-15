@@ -1,8 +1,9 @@
 package com.pasteleria.app.apppasteleria.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class CestaProducto {
+public class CestaProducto implements Serializable {
     private Integer idCestaProducto;
     private Integer idProducto;
     private String nombre;

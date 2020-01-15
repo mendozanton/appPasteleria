@@ -44,7 +44,7 @@ public class ProductoOpcActivity extends AppCompatActivity {
         textView1 = findViewById(R.id.tvProdDesc_opc);
         textView2 = findViewById(R.id.tvProdPrec_opc);
         textView3 = findViewById(R.id.tvCantidad);
-
+        cant = 1;
         imageButton1 = findViewById(R.id.imgbtMinus);
         imageButton2 = findViewById(R.id.imgbtPlus);
         btnContinuar = findViewById(R.id.btnContinuar);
@@ -88,6 +88,7 @@ public class ProductoOpcActivity extends AppCompatActivity {
                         agregarALaCesta(idProducto,cant,1);
                         break;
                     case 1:
+
                         break;
                 }
             }

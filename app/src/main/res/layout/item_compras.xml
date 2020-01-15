@@ -1,84 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:id="@+id/cardview_itemCompras"
     android:orientation="vertical"
-    tools:context=".activity.PedidoConfirmActivity">
-    <android.support.v7.widget.CardView
+    app:cardUseCompatPadding="true"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cvUsuario_confirm"
-        android:layout_marginBottom="15dp"
+        android:orientation="vertical"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/cardview_info_prod_padding">
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:src="@drawable/ic_content_paste_black_24dp"/>
 
             <TextView
+                android:id="@+id/tvNomProdCesta_itemCesta"
+                android:layout_toRightOf="@+id/ivProdCesta_itemCesta"
+                android:text="Compra confirmada"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:textStyle="bold"
                 android:textColor="@color/textColorBlack"
-                android:id="@+id/tvNombre_pedConfitmActivity"
+                android:padding="@dimen/cardview_cesta_prod_padding"
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvDist_pedConfitmActivity"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvDirecc_pedConfitmActivity"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvTel_pedConfitmActivity"
-                />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rvProductoConfirm"
-        android:scrollbars="vertical"
-        android:layout_weight="1">
 
-    </android.support.v7.widget.RecyclerView>
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp">
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Resumen del pedido"
-                android:textColor="@color/textColorBlack"
-                android:textSize="16dp"
-                android:paddingHorizontal="@dimen/cardview_info_prod_padding"
-                android:paddingVertical="@dimen/cardview_cesta_prod_padding"
-                />
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="@color/fondo" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Subtotal:"
+                    android:text="ID del pedido"
                     android:textSize="12dp"
                     android:paddingHorizontal="@dimen/cardview_info_prod_padding"
                     android:paddingVertical="5dp"
@@ -86,7 +57,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvPrecSubTotal_pedConfitmActivity"
+                    android:id="@+id/tvIdped_itemComp"
                     android:gravity="end"
                     android:textSize="12dp"
                     android:paddingHorizontal="@dimen/cardview_info_prod_padding"
@@ -96,49 +67,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Envio:"
-                    android:textSize="12dp"
-                    android:paddingHorizontal="@dimen/cardview_info_prod_padding"
-                    android:paddingVertical="5dp"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvPrecEnvio_pedConfitmActivity"
-                    android:gravity="end"
-                    android:textSize="12dp"
-                    android:paddingHorizontal="@dimen/cardview_info_prod_padding"
-                    android:paddingVertical="5dp"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total a pagar:"
-                    android:textSize="12dp"
-                    android:paddingHorizontal="@dimen/cardview_info_prod_padding"
-                    android:paddingVertical="5dp"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvPrecTotal_pedConfitmActivity"
-                    android:gravity="end"
-                    android:textSize="12dp"
-                    android:paddingHorizontal="@dimen/cardview_info_prod_padding"
-                    android:paddingVertical="5dp"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/lyFecEnvio_pedConfitmActivity">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -150,40 +78,62 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvFecEnvio_pedConfitmActivity"
+                    android:id="@+id/tvEnvped_itemComp"
                     android:gravity="end"
                     android:textSize="12dp"
                     android:paddingHorizontal="@dimen/cardview_info_prod_padding"
                     android:paddingVertical="5dp"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha registrada"
+                    android:textSize="12dp"
+                    android:paddingHorizontal="@dimen/cardview_info_prod_padding"
+                    android:paddingVertical="5dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvFechped_itemComp"
+                    android:gravity="end"
+                    android:textSize="12dp"
+                    android:paddingHorizontal="@dimen/cardview_info_prod_padding"
+                    android:paddingVertical="5dp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    android:textSize="12dp"
+                    android:paddingHorizontal="@dimen/cardview_info_prod_padding"
+                    android:paddingVertical="5dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMonto_itemComp"
+                    android:gravity="end"
+                    android:textSize="12dp"
+                    android:paddingHorizontal="@dimen/cardview_info_prod_padding"
+                    android:paddingVertical="5dp"
+                    />
+            </LinearLayout>
+
+            <!--<ImageView
+                android:id="@+id/ivProdCesta_itemCesta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop" />-->
         </LinearLayout>
-    </android.support.v7.widget.CardView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@color/colorWhite"
-        android:layout_height="60dp">
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/tvPrecTotal2_pedConfitmActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/textColorBlack"
-             />
-
-        <Button
-            android:id="@+id/btnPedir_pedConfitmActivity"
-            android:layout_width="160dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="160dp"
-            android:background="@drawable/button_3"
-            android:text="Pedir"
-            android:textColor="@color/colorWhite" />
     </LinearLayout>
-</LinearLayout>
+</android.support.v7.widget.CardView>

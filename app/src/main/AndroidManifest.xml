@@ -20,9 +20,9 @@
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/AppThemeBarDark" />
-        <activity
-            android:name=".activity.PedidoConfirmActivity"
-            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.PedidoConfirmActivity"
+            android:theme="@style/AppThemeBarDark"
+            />
         <activity android:name=".activity.ProductoOpcActivity" />
         <activity android:name=".activity.ProductoInfoActivity" />
         <activity android:name=".activity.MainActivity" />

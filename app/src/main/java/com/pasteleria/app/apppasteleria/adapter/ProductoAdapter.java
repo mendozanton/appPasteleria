@@ -37,7 +37,6 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
     public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.item_prod, viewGroup,false);
-
         /***   Incluye el contexto      ***/
         //View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_prod, viewGroup,false);
         return new ProductoViewHolder(view);

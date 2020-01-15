@@ -94,7 +94,7 @@ public class ProductoInfoActivity extends AppCompatActivity {
 
         final DecimalFormat formato = new DecimalFormat("#,###.00");
 
-        System.out.println("despues del request : " + precio_envio);
+        //System.out.println("despues del request : " + precio_envio);
 
         precio.setText("PEN S/. " + formato.format(producto.getPrecio()));
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
